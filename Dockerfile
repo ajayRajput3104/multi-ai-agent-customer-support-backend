@@ -16,29 +16,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # =========================
-# 4️⃣ Upgrade pip
-# =========================
-RUN pip install --upgrade pip setuptools wheel
-
-# =========================
-# 5️⃣ Copy and install Python dependencies
+# 4️⃣ Copy requirements and install Python packages
 # =========================
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade --no-cache-dir pip setuptools wheel \
+    && pip install --no-cache-dir -r requirements.txt
 
 # =========================
-# 6️⃣ Copy project code
+# 5️⃣ Copy project code
 # =========================
 COPY backend ./backend
 
 # =========================
-# 7️⃣ Environment variables
+# 6️⃣ Environment variables
 # =========================
 ENV PYTHONUNBUFFERED=1
 ENV GROQ_API_KEY=""
 
 # =========================
-# 8️⃣ Expose port & run app
+# 7️⃣ Expose port & run app
 # =========================
 EXPOSE 8000
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
