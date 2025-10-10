@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # =========================
 # 4️⃣ Upgrade pip
 # =========================
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip setuptools wheel
 
 # =========================
 # 5️⃣ Copy and install Python dependencies

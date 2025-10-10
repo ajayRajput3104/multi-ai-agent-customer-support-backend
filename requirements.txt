@@ -10,9 +10,5 @@ langchain-groq==0.1.4
 langgraph==0.2.22
 
 # === Utilities ===
-python-dotenv==1.0.1    # to load .env (optional but recommended)
-pydantic==2.9.2
-
-
-
-
+python-dotenv==1.0.1
+pydantic==1.10.12   # downgraded to avoid conflicts with LangChain 0.3.x
