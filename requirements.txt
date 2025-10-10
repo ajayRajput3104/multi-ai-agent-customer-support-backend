@@ -1,6 +1,6 @@
 # === Web Framework ===
-fastapi==0.115.0
-uvicorn==0.31.1
+fastapi>=0.118.0          # supports Pydantic 2.x
+uvicorn>=0.23.0           # latest compatible with FastAPI
 
 # === LangChain Core Components ===
 langchain==0.3.3
@@ -10,5 +10,5 @@ langchain-groq==0.1.4
 langgraph==0.2.22
 
 # === Utilities ===
-python-dotenv==1.0.1
-pydantic==1.10.12   # downgraded to avoid conflicts with LangChain 0.3.x
+python-dotenv              # optional, for local env file support
+pydantic>=2.7.4,<3.0.0
