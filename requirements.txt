@@ -1,0 +1,18 @@
+# === Web Framework ===
+fastapi==0.115.0
+uvicorn==0.31.1
+
+# === LangChain Core Components ===
+langchain==0.3.3
+langchain-core==0.3.12
+langchain-community==0.3.1
+langchain-groq==0.1.4
+langgraph==0.2.22
+
+# === Utilities ===
+python-dotenv==1.0.1    # to load .env (optional but recommended)
+pydantic==2.9.2
+
+
+
+
