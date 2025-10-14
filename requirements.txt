@@ -8,17 +8,17 @@ python-multipart==0.0.9
 # ===================================
 # LangChain & AI Components
 # ===================================
-langchain==0.1.20
-langchain-core==0.1.52
-langchain-community==0.0.38
-langchain-groq==0.1.3
-langgraph==0.0.55
+langchain==0.2.11
+langchain-core==0.2.23
+langchain-community==0.2.10
+langchain-groq==0.1.9
+langgraph==0.1.19
 
 # ===================================
 # Pydantic & Configuration
 # ===================================
-pydantic==2.7.1
-pydantic-settings==2.2.1
+pydantic==2.8.2
+pydantic-settings==2.3.4
 
 # ===================================
 # Environment & Utilities
@@ -29,7 +29,12 @@ python-dotenv==1.0.1
 # HTTP & Networking (for health checks)
 # ===================================
 httpx==0.27.0
+
 requests==2.31.0
+# ===================================
+# Additional Dependencies
+# ===================================
+typing-extensions==4.12.2
 # ===================================
 # Optional: Performance & Monitoring
 # ===================================
