@@ -1,38 +1,37 @@
 # ===================================
 # Web Framework & Server
 # ===================================
-fastapi==0.109.0
-uvicorn[standard]==0.27.1
-python-multipart==0.0.9
+fastapi
+uvicorn[standard]
+python-multipart
 
 # ===================================
 # LangChain & AI Components
 # ===================================
-langchain==0.2.16
-langchain-core==0.2.38
-langchain-community==0.2.16
-langchain-groq==0.1.9
-langgraph==0.2.16
+langchain
+langchain-community
+langchain-groq
+langgraph
 
 # ===================================
 # Pydantic & Configuration
 # ===================================
-pydantic==2.9.2
-pydantic-settings==2.5.2
+pydantic
+pydantic-settings
 
 # ===================================
 # Environment & Utilities
 # ===================================
-python-dotenv==1.0.1
+python-dotenv
 
 # ===================================
 # HTTP & Networking (for health checks)
 # ===================================
-httpx==0.27.0
+httpx
 # ===================================
 # Additional Dependencies
 # ===================================
-typing-extensions==4.12.2
+typing-extensions
 # ===================================
 # Optional: Performance & Monitoring
 # ===================================
