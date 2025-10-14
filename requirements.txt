@@ -1,14 +1,36 @@
-# === Web Framework ===
-fastapi
-uvicorn
+# ===================================
+# Web Framework & Server
+# ===================================
+fastapi==0.109.0
+uvicorn[standard]==0.27.1
+python-multipart==0.0.9
 
-# === LangChain Core Components ===
-langchain
-langchain-core
-langchain-community
-langchain-groq
-langgraph
+# ===================================
+# LangChain & AI Components
+# ===================================
+langchain==0.1.20
+langchain-core==0.1.52
+langchain-community==0.0.38
+langchain-groq==0.1.3
+langgraph==0.0.55
 
-# === Utilities ===
-python-dotenv
-pydantic
+# ===================================
+# Pydantic & Configuration
+# ===================================
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# ===================================
+# Environment & Utilities
+# ===================================
+python-dotenv==1.0.1
+
+# ===================================
+# HTTP & Networking (for health checks)
+# ===================================
+httpx==0.27.0
+requests==2.31.0
+# ===================================
+# Optional: Performance & Monitoring
+# ===================================
+# gunicorn==21.2.0  # Uncomment if using Gunicorn instead of Uvicorn workers

@@ -1,29 +1,24 @@
-# backend/multi_ai_support.py
-
 from typing import TypedDict, Dict
 from langgraph.graph import StateGraph, END
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 import re
-from dotenv import load_dotenv
-load_dotenv()  # loads .env variables into environment
-import os
+from app.config import get_settings
 
-# Define workflow state
+settings = get_settings()
+
 class State(TypedDict):
     query: str
     category: str
     sentiment: str
     response: str
 
-# Initialize model (make sure API key is set via environment variable)
+# Initialize model
 llm = ChatGroq(
     temperature=0,
-    api_key=os.getenv("GROQ_API_KEY"),
+    api_key=settings.groq_api_key,
     model_name="llama-3.3-70b-versatile"
 )
-
-# ---------- Helper functions ----------
 
 def clean_response(text: str) -> str:
     if not isinstance(text, str):
@@ -35,8 +30,6 @@ def clean_response(text: str) -> str:
     text = re.sub(r"\n{3,}", "\n\n", text)
     text = re.sub(r"[ \t]+", " ", text)
     return text.strip()
-
-# ---------- Node definitions ----------
 
 def categorize(state: State) -> State:
     prompt = ChatPromptTemplate.from_template(
@@ -93,8 +86,7 @@ def route_query(state: State) -> str:
     else:
         return "handle_general"
 
-# ---------- Build Workflow Graph ----------
-
+# Build Workflow Graph
 workflow = StateGraph(State)
 
 workflow.add_node("categorize", categorize)
@@ -122,8 +114,6 @@ workflow.add_edge("escalate", END)
 workflow.set_entry_point("categorize")
 
 app_graph = workflow.compile()
-
-# ---------- Main function to use in FastAPI ----------
 
 def run_customer_support(query: str) -> Dict[str, str]:
     results = app_graph.invoke({"query": query})
