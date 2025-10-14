@@ -119,7 +119,7 @@ app_graph = workflow.compile()
 
 def run_customer_support(query: str) -> Dict[str, str]:
     results = app_graph.invoke({"query": query})
-    clean_text = clean_response(results.get("response", ""))
+    clean_text = clean_response(results.get("response", "")) #.replace("\n", " ").replace("\\n", " ")
 
     return {
         "category": results.get("category", "").strip(),
