@@ -42,8 +42,10 @@ def categorize(state: State) -> State:
 
 def analyze_sentiment(state: State) -> State:
     prompt = ChatPromptTemplate.from_template(
-        "Analyze the sentiment of this customer query. "
-        "Respond with 'Positive', 'Neutral', or 'Negative'. Query: {query}"
+        "Analyze the emotional tone of this customer query from the customer's perspective. "
+        "Ignore grammatical negations like 'cannot', 'can't', or 'don't' if they only describe a technical problem. "
+        "Do not judge based on wording alone—respond 'Negative' only if the query clearly expresses frustration,hate, anger, or hostility. "
+        "Query: {query}"
     )
     chain = prompt | llm
     sentiment = chain.invoke({"query": state["query"]}).content
