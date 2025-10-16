@@ -45,6 +45,7 @@ def analyze_sentiment(state: State) -> State:
         "Analyze the emotional tone of this customer query from the customer's perspective. "
         "Ignore grammatical negations like 'cannot', 'can't', or 'don't' if they only describe a technical problem. "
         "Do not judge based on wording alone—respond 'Negative' only if the query clearly expresses frustration,hate, anger, or hostility. "
+        "Response should be a single word which depicts the sentiment"
         "Query: {query}"
     )
     chain = prompt | llm
