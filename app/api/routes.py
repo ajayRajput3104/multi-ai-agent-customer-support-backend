@@ -27,7 +27,7 @@ async def process_query(request: QueryRequest):
             response=result["response"]
         )
         
-        return APIResponse(success=True, data=support_response)
+        return APIResponse(success=True, data=support_response,message="Query processed successfully")
     
     except Exception as e:
         logger.error(f"Error processing query: {str(e)}")
